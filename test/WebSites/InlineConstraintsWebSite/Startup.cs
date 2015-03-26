@@ -18,21 +18,21 @@ namespace InlineConstraints
 
             services.Configure<RouteOptions>(
                 routeOptions => routeOptions.ConstraintMap.Add(
-                    "producttype",
-                    typeof(ItemTypeConstraint)));
+                    "IsbnDigitScheme10",
+                    typeof(IsbnDigitScheme10Constraint)));
 
             services.Configure<RouteOptions>(
                 routeOptions => routeOptions.ConstraintMap.Add(
-                    "servicetype",
-                    typeof(ItemTypeConstraint)));
+                    "IsbnDigitScheme13",
+                    typeof(IsbnDigitScheme10Constraint)));
 
             services.Configure<RouteOptions>(
                 routeOptions =>
                 {
-                    if (routeOptions.ConstraintMap.ContainsKey("servicetype"))
+                    if (routeOptions.ConstraintMap.ContainsKey("IsbnDigitScheme13"))
                     {
-                        routeOptions.ConstraintMap["servicetype"] =
-                            typeof(ItemTypeUpperCaseConstraint);
+                        routeOptions.ConstraintMap["IsbnDigitScheme13"] =
+                            typeof(IsbnDigitScheme13Constraint);
                     }
                 });
 
@@ -49,14 +49,14 @@ namespace InlineConstraints
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "producttype",
-                    template: "producttype/{action}/{type:producttype(software)}",
-                    defaults: new { controller = "inlineconstraints_software" });
+                    name: "isbn10",
+                    template: "book/{action}/{isbnNumber:IsbnDigitScheme10(true)}",
+                    defaults: new { controller = "InlineConstraints_Isbn10" });
 
                 routes.MapRoute(
-                    name: "servicetype",
-                    template: "producttype/{action}/{type:servicetype(hardware)}",
-                    defaults: new { controller = "inlineconstraints_hardware" });
+                    name: "isbn10",
+                    template: "book/{action}/{isbnNumber:IsbnDigitScheme10(true)}",
+                    defaults: new { controller = "InlineConstraints_Isbn10" });
 
                 routes.MapRoute("StoreId",
                         "store/{action}/{id:guid?}",
