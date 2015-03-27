@@ -2038,6 +2038,11 @@ namespace Microsoft.AspNet.Mvc
             var inputFormattersProvider = new Mock<IInputFormattersProvider>();
             inputFormattersProvider.SetupGet(o => o.InputFormatters)
                                             .Returns(new List<IInputFormatter>());
+
+            var outputFormattersProvider = new Mock<IOutputFormattersProvider>();
+            outputFormattersProvider.SetupGet(o => o.OutputFormatters)
+                                            .Returns(new List<IOutputFormatter>());
+
             var excludeFilterProvider = new Mock<IValidationExcludeFiltersProvider>();
             excludeFilterProvider.SetupGet(o => o.ExcludeFilters)
                                  .Returns(new List<IExcludeTypeValidationFilter>());
@@ -2047,6 +2052,7 @@ namespace Microsoft.AspNet.Mvc
                 new MockControllerFactory(this),
                 actionDescriptor,
                 inputFormattersProvider.Object,
+                outputFormattersProvider.Object,
                 Mock.Of<IControllerActionArgumentBinder>(),
                 new MockModelBinderProvider(),
                 new MockModelValidatorProviderProvider(),
@@ -2098,6 +2104,11 @@ namespace Microsoft.AspNet.Mvc
             var inputFormattersProvider = new Mock<IInputFormattersProvider>();
             inputFormattersProvider.SetupGet(o => o.InputFormatters)
                                             .Returns(new List<IInputFormatter>());
+
+            var outputFormattersProvider = new Mock<IOutputFormattersProvider>();
+            outputFormattersProvider.SetupGet(o => o.OutputFormatters)
+                                            .Returns(new List<IOutputFormatter>());
+
             var metadataProvider = new EmptyModelMetadataProvider();
             var invoker = new ControllerActionInvoker(
                 actionContext,
@@ -2105,6 +2116,7 @@ namespace Microsoft.AspNet.Mvc
                 controllerFactory.Object,
                 actionDescriptor,
                 inputFormattersProvider.Object,
+                outputFormattersProvider.Object,
                 new DefaultControllerActionArgumentBinder(
                     metadataProvider,
                     new DefaultObjectValidator(Mock.Of<IValidationExcludeFiltersProvider>(), metadataProvider),
@@ -2206,6 +2218,7 @@ namespace Microsoft.AspNet.Mvc
                 MockControllerFactory controllerFactory,
                 ControllerActionDescriptor descriptor,
                 IInputFormattersProvider inputFormattersProvider,
+                IOutputFormattersProvider outputFormattersProvider,
                 IControllerActionArgumentBinder controllerActionArgumentBinder,
                 IModelBinderProvider modelBinderProvider,
                 IModelValidatorProviderProvider modelValidatorProviderProvider,
@@ -2218,6 +2231,7 @@ namespace Microsoft.AspNet.Mvc
                       controllerFactory,
                       descriptor,
                       inputFormattersProvider,
+                      outputFormattersProvider,
                       controllerActionArgumentBinder,
                       modelBinderProvider,
                       modelValidatorProviderProvider,

@@ -15,6 +15,7 @@ namespace Microsoft.AspNet.Mvc.Core
         private readonly IControllerFactory _controllerFactory;
         private readonly IFilterProvider[] _filterProviders;
         private readonly IInputFormattersProvider _inputFormattersProvider;
+        private readonly IOutputFormattersProvider _outputFormattersProvider;
         private readonly IModelBinderProvider _modelBinderProvider;
         private readonly IModelValidatorProviderProvider _modelValidationProviderProvider;
         private readonly IValueProviderFactoryProvider _valueProviderFactoryProvider;
@@ -24,6 +25,7 @@ namespace Microsoft.AspNet.Mvc.Core
         public ControllerActionInvokerProvider(
             IControllerFactory controllerFactory,
             IInputFormattersProvider inputFormattersProvider,
+            IOutputFormattersProvider outputFormattersProvider,
             IEnumerable<IFilterProvider> filterProviders,
             IControllerActionArgumentBinder argumentBinder,
             IModelBinderProvider modelBinderProvider,
@@ -34,6 +36,7 @@ namespace Microsoft.AspNet.Mvc.Core
         {
             _controllerFactory = controllerFactory;
             _inputFormattersProvider = inputFormattersProvider;
+            _outputFormattersProvider = outputFormattersProvider;
             _filterProviders = filterProviders.OrderBy(item => item.Order).ToArray();
             _argumentBinder = argumentBinder;
             _modelBinderProvider = modelBinderProvider;
@@ -61,6 +64,7 @@ namespace Microsoft.AspNet.Mvc.Core
                                     _controllerFactory,
                                     actionDescriptor,
                                     _inputFormattersProvider,
+                                    _outputFormattersProvider,
                                     _argumentBinder,
                                     _modelBinderProvider,
                                     _modelValidationProviderProvider,

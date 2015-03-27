@@ -17,6 +17,7 @@ namespace Microsoft.AspNet.Mvc.Core
     {
         private readonly IReadOnlyList<IFilterProvider> _filterProviders;
         private readonly IInputFormattersProvider _inputFormatterProvider;
+        private readonly IOutputFormattersProvider _outputFormatterProvider;
         private readonly IModelBinderProvider _modelBinderProvider;
         private readonly IModelValidatorProviderProvider _modelValidatorProviderProvider;
         private readonly IValueProviderFactoryProvider _valueProviderFactoryProvider;
@@ -42,6 +43,7 @@ namespace Microsoft.AspNet.Mvc.Core
             [NotNull] ActionContext actionContext,
             [NotNull] IReadOnlyList<IFilterProvider> filterProviders,
             [NotNull] IInputFormattersProvider inputFormatterProvider,
+            [NotNull] IOutputFormattersProvider outputFormatterProvider,
             [NotNull] IModelBinderProvider modelBinderProvider,
             [NotNull] IModelValidatorProviderProvider modelValidatorProviderProvider,
             [NotNull] IValueProviderFactoryProvider valueProviderFactoryProvider,
@@ -51,6 +53,7 @@ namespace Microsoft.AspNet.Mvc.Core
 
             _filterProviders = filterProviders;
             _inputFormatterProvider = inputFormatterProvider;
+            _outputFormatterProvider = outputFormatterProvider;
             _modelBinderProvider = modelBinderProvider;
             _modelValidatorProviderProvider = modelValidatorProviderProvider;
             _valueProviderFactoryProvider = valueProviderFactoryProvider;
@@ -207,6 +210,7 @@ namespace Microsoft.AspNet.Mvc.Core
             var context = new ResourceExecutingContext(ActionContext, _filters);
 
             context.InputFormatters = new List<IInputFormatter>(_inputFormatterProvider.InputFormatters);
+            context.OutputFormatters = new List<IOutputFormatter>(_outputFormatterProvider.OutputFormatters);
             context.ModelBinders = new List<IModelBinder>(_modelBinderProvider.ModelBinders);
 
             context.ValidatorProviders = new List<IModelValidatorProvider>(
@@ -420,6 +424,7 @@ namespace Microsoft.AspNet.Mvc.Core
 
             ActionBindingContext = new ActionBindingContext();
             ActionBindingContext.InputFormatters = _resourceExecutingContext.InputFormatters;
+            ActionBindingContext.OutputFormatters = _resourceExecutingContext.OutputFormatters;
             ActionBindingContext.ModelBinder = new CompositeModelBinder(_resourceExecutingContext.ModelBinders);
             ActionBindingContext.ValidatorProvider = new CompositeModelValidatorProvider(
                 _resourceExecutingContext.ValidatorProviders);

@@ -877,6 +877,14 @@ namespace Microsoft.AspNet.Mvc.Core.Test.ActionResults
             httpContext.Setup(o => o.RequestServices.GetService(typeof(IOutputFormattersProvider)))
                        .Returns(new TestOutputFormatterProvider(outputFormatters));
 
+            var mockContextAccessor = new Mock<IScopedInstance<ActionBindingContext>>();
+            mockContextAccessor
+                .SetupGet(o => o.Value)
+                .Returns(new ActionBindingContext() { OutputFormatters = outputFormatters.ToList() });
+
+            httpContext.Setup(o => o.RequestServices.GetService(typeof(IScopedInstance<ActionBindingContext>)))
+                       .Returns(mockContextAccessor.Object);
+
             var options = new Mock<IOptions<MvcOptions>>();
             options.SetupGet(o => o.Options)
                        .Returns(new MvcOptions()

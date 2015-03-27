@@ -23,7 +23,8 @@ namespace Microsoft.AspNet.Mvc.Core
             [NotNull] IReadOnlyList<IFilterProvider> filterProviders,
             [NotNull] IControllerFactory controllerFactory,
             [NotNull] ControllerActionDescriptor descriptor,
-            [NotNull] IInputFormattersProvider inputFormatterProvider,
+            [NotNull] IInputFormattersProvider inputFormattersProvider,
+            [NotNull] IOutputFormattersProvider outputFormattersProvider,
             [NotNull] IControllerActionArgumentBinder controllerActionArgumentBinder,
             [NotNull] IModelBinderProvider modelBinderProvider,
             [NotNull] IModelValidatorProviderProvider modelValidatorProviderProvider,
@@ -31,11 +32,12 @@ namespace Microsoft.AspNet.Mvc.Core
             [NotNull] IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
             [NotNull] ITempDataDictionary tempData)
             : base(
-                  actionContext, 
+                  actionContext,
                   filterProviders,
-                  inputFormatterProvider, 
-                  modelBinderProvider, 
-                  modelValidatorProviderProvider, 
+                  inputFormattersProvider,
+                  outputFormattersProvider,
+                  modelBinderProvider,
+                  modelValidatorProviderProvider,
                   valueProviderFactoryProvider,
                   actionBindingContextAccessor)
         {

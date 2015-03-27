@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Core;
@@ -106,8 +107,20 @@ namespace Microsoft.AspNet.Mvc
                        .Returns(options.Object);
             httpContext.Setup(o => o.Response)
                        .Returns(response);
+            var testOutputFormatter = new TestOutputFormatterProvider();
             httpContext.Setup(o => o.RequestServices.GetService(typeof(IOutputFormattersProvider)))
-                       .Returns(new TestOutputFormatterProvider());
+                       .Returns(testOutputFormatter);
+
+            var mockContextAccessor = new Mock<IScopedInstance<ActionBindingContext>>();
+            mockContextAccessor
+                .SetupGet(o => o.Value)
+                .Returns(new ActionBindingContext()
+                {
+                    OutputFormatters = testOutputFormatter.OutputFormatters.ToList()
+                });
+
+            httpContext.Setup(o => o.RequestServices.GetService(typeof(IScopedInstance<ActionBindingContext>)))
+                       .Returns(mockContextAccessor.Object);
 
             return httpContext.Object;
         }

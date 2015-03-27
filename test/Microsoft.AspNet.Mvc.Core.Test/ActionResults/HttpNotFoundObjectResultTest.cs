@@ -89,8 +89,20 @@ namespace Microsoft.AspNet.Mvc
 
             httpContext.Setup(o => o.Request).Returns(request);
             httpContext.Setup(o => o.RequestServices).Returns(GetServiceProvider());
+            var testOutputFormatter = new TestOutputFormatterProvider(formatters);
             httpContext.Setup(o => o.RequestServices.GetService(typeof(IOutputFormattersProvider)))
-                       .Returns(new TestOutputFormatterProvider(formatters));
+                       .Returns(testOutputFormatter);
+
+            var mockContextAccessor = new Mock<IScopedInstance<ActionBindingContext>>();
+            mockContextAccessor
+                .SetupGet(o => o.Value)
+                .Returns(new ActionBindingContext()
+                {
+                    OutputFormatters = testOutputFormatter.OutputFormatters.ToList()
+                });
+
+            httpContext.Setup(o => o.RequestServices.GetService(typeof(IScopedInstance<ActionBindingContext>)))
+                       .Returns(mockContextAccessor.Object);
 
             var options = new Mock<IOptions<MvcOptions>>();
             options.SetupGet(o => o.Options)
