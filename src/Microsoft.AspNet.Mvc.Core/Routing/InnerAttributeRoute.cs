@@ -102,42 +102,30 @@ namespace Microsoft.AspNet.Mvc.Routing
         /// <inheritdoc />
         public async Task RouteAsync([NotNull] RouteContext context)
         {
-            using (_logger.BeginScope("AttributeRoute.RouteAsync"))
+            foreach (var route in _matchingRoutes)
             {
-                foreach (var route in _matchingRoutes)
+                var oldRouteData = context.RouteData;
+
+                var newRouteData = new RouteData(oldRouteData);
+                newRouteData.Routers.Add(route);
+
+                try
                 {
-                    var oldRouteData = context.RouteData;
-
-                    var newRouteData = new RouteData(oldRouteData);
-                    newRouteData.Routers.Add(route);
-
-                    try
+                    context.RouteData = newRouteData;
+                    await route.RouteAsync(context);
+                }
+                finally
+                {
+                    if (!context.IsHandled)
                     {
-                        context.RouteData = newRouteData;
-                        await route.RouteAsync(context);
-                    }
-                    finally
-                    {
-                        if (!context.IsHandled)
-                        {
-                            context.RouteData = oldRouteData;
-                        }
-                    }
-
-                    if (context.IsHandled)
-                    {
-                        break;
+                        context.RouteData = oldRouteData;
                     }
                 }
-            }
 
-            if (_logger.IsEnabled(LogLevel.Verbose))
-            {
-                _logger.WriteValues(new AttributeRouteRouteAsyncValues()
+                if (context.IsHandled)
                 {
-                    MatchingRoutes = _matchingRoutes,
-                    Handled = context.IsHandled
-                });
+                    break;
+                }
             }
         }
 

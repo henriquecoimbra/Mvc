@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc.Core;
+using Microsoft.AspNet.Mvc.Core.Logging;
 using Microsoft.AspNet.Mvc.Internal;
 using Microsoft.AspNet.Mvc.Logging;
 using Microsoft.AspNet.Routing;
@@ -40,49 +41,46 @@ namespace Microsoft.AspNet.Mvc
             MvcServicesHelper.ThrowIfMvcNotRegistered(services);
 
             EnsureLogger(context.HttpContext);
-            using (_logger.BeginScope("MvcRouteHandler.RouteAsync"))
+            var actionSelector = services.GetRequiredService<IActionSelector>();
+            var actionDescriptor = await actionSelector.SelectAsync(context);
+
+            if (actionDescriptor == null)
             {
-                var actionSelector = services.GetRequiredService<IActionSelector>();
-                var actionDescriptor = await actionSelector.SelectAsync(context);
+                _logger.LogWarning("No actions matched the current request.");
+                return;
+            }
 
-                if (actionDescriptor == null)
+            _logger.LogVerbose("Action '{ActionName}' matched the request.", actionDescriptor.DisplayName);
+
+            // Replacing the route data allows any code running here to dirty the route values or data-tokens
+            // without affecting something upstream.
+            var oldRouteData = context.RouteData;
+            var newRouteData = new RouteData(oldRouteData);
+
+            if (actionDescriptor.RouteValueDefaults != null)
+            {
+                foreach (var kvp in actionDescriptor.RouteValueDefaults)
                 {
-                    LogActionSelection(actionSelected: false, actionInvoked: false, handled: context.IsHandled);
-                    return;
-                }
-
-                // Replacing the route data allows any code running here to dirty the route values or data-tokens
-                // without affecting something upstream.
-                var oldRouteData = context.RouteData;
-                var newRouteData = new RouteData(oldRouteData);
-
-                if (actionDescriptor.RouteValueDefaults != null)
-                {
-                    foreach (var kvp in actionDescriptor.RouteValueDefaults)
+                    if (!newRouteData.Values.ContainsKey(kvp.Key))
                     {
-                        if (!newRouteData.Values.ContainsKey(kvp.Key))
-                        {
-                            newRouteData.Values.Add(kvp.Key, kvp.Value);
-                        }
+                        newRouteData.Values.Add(kvp.Key, kvp.Value);
                     }
                 }
+            }
 
-                try
+            try
+            {
+                context.RouteData = newRouteData;
+
+                await InvokeActionAsync(context, actionDescriptor);
+                context.IsHandled = true;
+            }
+            finally
+            {
+                if (!context.IsHandled)
                 {
-                    context.RouteData = newRouteData;
-
-                    await InvokeActionAsync(context, actionDescriptor);
-                    context.IsHandled = true;
+                    context.RouteData = oldRouteData;
                 }
-                finally
-                {
-                    if (!context.IsHandled)
-                    {
-                        context.RouteData = oldRouteData;
-                    }
-                }
-
-                LogActionSelection(actionSelected: true, actionInvoked: true, handled: context.IsHandled);
             }
         }
 
@@ -102,14 +100,15 @@ namespace Microsoft.AspNet.Mvc
             var invoker = invokerFactory.CreateInvoker(actionContext);
             if (invoker == null)
             {
-                LogActionSelection(actionSelected: true, actionInvoked: false, handled: context.IsHandled);
-
                 throw new InvalidOperationException(
                     Resources.FormatActionInvokerFactory_CouldNotCreateInvoker(
                         actionDescriptor.DisplayName));
             }
 
-            await invoker.InvokeAsync();
+            using (_logger.BeginScope("Executing action '{ActionName}'.", actionDescriptor.DisplayName))
+            {
+                await invoker.InvokeAsync();
+            }
         }
 
         private void EnsureLogger(HttpContext context)
@@ -118,19 +117,6 @@ namespace Microsoft.AspNet.Mvc
             {
                 var factory = context.RequestServices.GetRequiredService<ILoggerFactory>();
                 _logger = factory.CreateLogger<MvcRouteHandler>();
-            }
-        }
-
-        private void LogActionSelection(bool actionSelected, bool actionInvoked, bool handled)
-        {
-            if (_logger.IsEnabled(LogLevel.Verbose))
-            {
-                _logger.WriteValues(new MvcRouteHandlerRouteAsyncValues()
-                {
-                    ActionSelected = actionSelected,
-                    ActionInvoked = actionInvoked,
-                    Handled = handled,
-                });
             }
         }
     }
