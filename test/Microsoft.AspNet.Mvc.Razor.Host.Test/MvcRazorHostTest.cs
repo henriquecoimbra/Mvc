@@ -108,21 +108,21 @@ namespace Microsoft.AspNet.Mvc.Razor
                 BuildLineMapping(documentAbsoluteIndex: 7,
                                  documentLineIndex: 0,
                                  documentCharacterIndex: 7,
-                                 generatedAbsoluteIndex: 444,
+                                 generatedAbsoluteIndex: 518,
                                  generatedLineIndex: 12,
                                  generatedCharacterIndex: 7,
                                  contentLength: 8),
                 BuildLineMapping(documentAbsoluteIndex: 33,
                                  documentLineIndex: 2,
                                  documentCharacterIndex: 14,
-                                 generatedAbsoluteIndex: 823,
+                                 generatedAbsoluteIndex: 934,
                                  generatedLineIndex: 25,
                                  generatedCharacterIndex: 14,
                                  contentLength: 85),
                 BuildLineMapping(documentAbsoluteIndex: 139,
                                  documentLineIndex: 4,
                                  documentCharacterIndex: 17,
-                                 generatedAbsoluteIndex: 2105,
+                                 generatedAbsoluteIndex: 2290,
                                  generatedLineIndex: 53,
                                  generatedCharacterIndex: 95,
                                  contentLength: 3),
@@ -130,7 +130,7 @@ namespace Microsoft.AspNet.Mvc.Razor
                     documentAbsoluteIndex: 166,
                     documentLineIndex: 5,
                     documentCharacterIndex: 18,
-                    generatedAbsoluteIndex: 2418,
+                    generatedAbsoluteIndex: 2640,
                     generatedLineIndex: 59,
                     generatedCharacterIndex: 87,
                     contentLength: 5),
@@ -171,8 +171,8 @@ namespace Microsoft.AspNet.Mvc.Razor
             host.NamespaceImports.Clear();
             var expectedLineMappings = new List<LineMapping>
             {
-                BuildLineMapping(1, 0, 1, 59, 3, 0, 17),
-                BuildLineMapping(28, 1, 8, 688, 26, 8, 20)
+                BuildLineMapping(1, 0, 1, 96, 3, 0, 17),
+                BuildLineMapping(28, 1, 8, 836, 26, 8, 20)
             };
 
             // Act and Assert
@@ -191,9 +191,9 @@ namespace Microsoft.AspNet.Mvc.Razor
             host.NamespaceImports.Clear();
             var expectedLineMappings = new[]
             {
-                BuildLineMapping(7, 0, 7, 214, 6, 7, 7),
-                BuildLineMapping(24, 1, 8, 713, 26, 8, 20),
-                BuildLineMapping(54, 2, 8, 921, 34, 8, 23)
+                BuildLineMapping(7, 0, 7, 288, 6, 7, 7),
+                BuildLineMapping(24, 1, 8, 861, 26, 8, 20),
+                BuildLineMapping(54, 2, 8, 1106, 34, 8, 23)
             };
 
             // Act and Assert
@@ -212,11 +212,11 @@ namespace Microsoft.AspNet.Mvc.Razor
             host.NamespaceImports.Clear();
             var expectedLineMappings = new[]
             {
-                BuildLineMapping(7, 0, 7, 222, 6, 7, 7),
-                BuildLineMapping(24, 1, 8, 729, 26, 8, 20),
-                BuildLineMapping(58, 2, 8, 941, 34, 8, 23),
-                BuildLineMapping(93, 3, 8, 1156, 42, 8, 21),
-                BuildLineMapping(129, 4, 8, 1369, 50, 8, 24),
+                BuildLineMapping(7, 0, 7, 296, 6, 7, 7),
+                BuildLineMapping(24, 1, 8, 877, 26, 8, 20),
+                BuildLineMapping(58, 2, 8, 1126, 34, 8, 23),
+                BuildLineMapping(93, 3, 8, 1378, 42, 8, 21),
+                BuildLineMapping(129, 4, 8, 1628, 50, 8, 24),
             };
 
             // Act and Assert
@@ -235,7 +235,7 @@ namespace Microsoft.AspNet.Mvc.Razor
             host.NamespaceImports.Clear();
             var expectedLineMappings = new[]
             {
-                BuildLineMapping(7, 0, 7, 194, 6, 7, 30),
+                BuildLineMapping(7, 0, 7, 268, 6, 7, 30),
             };
 
             // Act and Assert
@@ -245,8 +245,8 @@ namespace Microsoft.AspNet.Mvc.Razor
         private static void RunRuntimeTest(MvcRazorHost host,
                                            string testName)
         {
-            var inputFile = "TestFiles/Input/" + testName + ".cshtml";
-            var expectedCode = ReadResource("TestFiles/Output/Runtime/" + testName + ".cs");
+            var inputFile = "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input." + testName + ".cshtml";
+            var expectedCode = ReadResource("TestFiles.Output.Runtime." + testName + ".cs");
 
             // Act
             GeneratorResults results;
@@ -265,8 +265,8 @@ namespace Microsoft.AspNet.Mvc.Razor
                                               string testName,
                                               IEnumerable<LineMapping> expectedLineMappings)
         {
-            var inputFile = "TestFiles/Input/" + testName + ".cshtml";
-            var expectedCode = ReadResource("TestFiles/Output/DesignTime/" + testName + ".cs");
+            var inputFile = "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input." + testName + ".cshtml";
+            var expectedCode = ReadResource("TestFiles.Output.DesignTime." + testName + ".cs");
 
             // Act
             GeneratorResults results;
@@ -284,7 +284,7 @@ namespace Microsoft.AspNet.Mvc.Razor
 
         private static string ReadResource(string resourceName)
         {
-            using (var stream = GetResourceStream(resourceName))
+            using (var stream = GetResourceStream("Microsoft.AspNet.Mvc.Razor.Host.Test." + resourceName))
             {
                 using (var streamReader = new StreamReader(stream))
                 {

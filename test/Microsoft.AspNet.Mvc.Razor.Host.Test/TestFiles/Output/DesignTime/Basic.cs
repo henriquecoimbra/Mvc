@@ -7,10 +7,10 @@
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Basic_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Basic_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
-        public ASPV_TestFiles_Input_Basic_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Basic_cshtml()
         {
         }
         #line hidden
@@ -31,7 +31,7 @@
             PageExecutionContext.EndContext();
             WriteAttribute("class", Tuple.Create(" class=\"", 4), Tuple.Create("\"", 17), 
             Tuple.Create(Tuple.Create("", 12), Tuple.Create<System.Object, System.Int32>(
-#line 1 "TestFiles/Input/Basic.cshtml"
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Basic.cshtml"
              logo
 
 #line default
@@ -42,7 +42,7 @@
             PageExecutionContext.EndContext();
             PageExecutionContext.BeginContext(43, 21, false);
             Write(
-#line 3 "TestFiles/Input/Basic.cshtml"
+#line 3 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Basic.cshtml"
      Html.Input("SomeKey")
 
 #line default

@@ -427,7 +427,7 @@ Partial that does not specify Layout
         {
             // Arrange
             var expected = await GetType().GetTypeInfo().Assembly
-                .ReadResourceAsStringAsync("compiler/resources/ViewEngineController.ViewWithPaths.txt");
+                .ReadResourceAsStringAsync("Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.ViewEngineController.ViewWithPaths.txt");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
 

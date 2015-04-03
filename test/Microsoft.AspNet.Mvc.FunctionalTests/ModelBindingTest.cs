@@ -1404,7 +1404,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/UpdateDealerVehicle_PopulatesPropertyErrorsInViews.txt");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.UpdateDealerVehicle_PopulatesPropertyErrorsInViews.txt");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var postedContent = new
@@ -1435,7 +1435,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/UpdateDealerVehicle_PopulatesValidationSummary.txt");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.UpdateDealerVehicle_PopulatesValidationSummary.txt");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var postedContent = new
@@ -1466,7 +1466,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/UpdateDealerVehicle_UpdateSuccessful.txt");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.UpdateDealerVehicle_UpdateSuccessful.txt");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var postedContent = new
@@ -1624,7 +1624,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/ModelBindingWebSite.Vehicle.Details.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.ModelBindingWebSite.Vehicle.Details.html");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var url = "http://localhost/vehicles/42";
@@ -1644,7 +1644,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/ModelBindingWebSite.Vehicle.Edit.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.ModelBindingWebSite.Vehicle.Edit.html");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var url = "http://localhost/vehicles/42/edit";
@@ -1664,7 +1664,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var expectedContent = await GetType().GetTypeInfo().Assembly.ReadResourceAsStringAsync(
-                "compiler/resources/ModelBindingWebSite.Vehicle.Edit.Invalid.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.ModelBindingWebSite.Vehicle.Edit.Invalid.html");
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var url = "http://localhost/vehicles/42/edit";

@@ -1,6 +1,6 @@
 ﻿namespace Asp
 {
-#line 1 "TestFiles/Input/Inject.cshtml"
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Inject.cshtml"
 using MyNamespace
 
 #line default
@@ -8,7 +8,7 @@ using MyNamespace
     ;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Inject_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Inject_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
     {
         private static object @__o;
         private void @__RazorDesignTimeHelpers__()
@@ -17,13 +17,13 @@ using MyNamespace
             #pragma warning restore 219
         }
         #line hidden
-        public ASPV_TestFiles_Input_Inject_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Inject_cshtml()
         {
         }
         #line hidden
         [Microsoft.AspNet.Mvc.ActivateAttribute]
         public
-#line 2 "TestFiles/Input/Inject.cshtml"
+#line 2 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Inject.cshtml"
         MyApp MyPropertyName
 
 #line default

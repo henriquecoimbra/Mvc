@@ -57,7 +57,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             // The K runtime compiles every file under compiler/resources as a resource at runtime with the same name
             // as the file name, in order to update a baseline you just need to change the file in that folder.
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/MvcTagHelpersWebSite.MvcTagHelper_Home." + action + ".html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.MvcTagHelpersWebSite.MvcTagHelper_Home." + action + ".html");
 
             // Act
             // The host is not important as everything runs in memory and tests are isolated from each other.
@@ -101,7 +101,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             // The K runtime compiles every file under compiler/resources as a resource at runtime with the same name
             // as the file name, in order to update a baseline you just need to change the file in that folder.
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/MvcTagHelpersWebSite.MvcTagHelper_Home." + action + ".Encoded.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.MvcTagHelpersWebSite.MvcTagHelper_Home." + action + ".Encoded.html");
 
             // Act
             // The host is not important as everything runs in memory and tests are isolated from each other.
@@ -128,7 +128,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/MvcTagHelpersWebSite.MvcTagHelper_Customer.Index.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.MvcTagHelpersWebSite.MvcTagHelper_Customer.Index.html");
 
             var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/Customer/MvcTagHelper_Customer");
             var nameValueCollection = new List<KeyValuePair<string, string>>
@@ -158,7 +158,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
         {
             // Arrange
             var assertFile =
-                "compiler/resources/CacheTagHelper_CanCachePortionsOfViewsPartialViewsAndViewComponents.Assert";
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.CacheTagHelper_CanCachePortionsOfViewsPartialViewsAndViewComponents.Assert";
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             client.BaseAddress = new Uri("http://localhost");
@@ -404,7 +404,7 @@ Products: Laptops (3)";
             // The K runtime compiles every file under compiler/resources as a resource at runtime with the same name
             // as the file name, in order to update a baseline you just need to change the file in that folder.
             var resourceName = string.Format(
-                "compiler/resources/MvcTagHelpersWebSite.MvcTagHelper_Home.Form.Options.AntiForgery.{0}.html",
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.MvcTagHelpersWebSite.MvcTagHelper_Home.Form.Options.AntiForgery.{0}.html",
                 optionsAntiForgery?.ToString() ?? "null"
             );
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(resourceName);

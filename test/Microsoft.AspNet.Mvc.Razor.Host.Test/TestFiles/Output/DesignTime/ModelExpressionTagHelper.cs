@@ -8,8 +8,8 @@
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_ModelExpressionTagHelper_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
-#line 1 "TestFiles/Input/ModelExpressionTagHelper.cshtml"
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_ModelExpressionTagHelper_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.ModelExpressionTagHelper.cshtml"
        DateTime
 
 #line default
@@ -22,7 +22,7 @@
             #pragma warning disable 219
             string __tagHelperDirectiveSyntaxHelper = null;
             __tagHelperDirectiveSyntaxHelper = 
-#line 3 "TestFiles/Input/ModelExpressionTagHelper.cshtml"
+#line 3 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.ModelExpressionTagHelper.cshtml"
               "Microsoft.AspNet.Mvc.Razor.InputTestTagHelper, Microsoft.AspNet.Mvc.Razor.Host.Test"
 
 #line default
@@ -33,7 +33,7 @@
         #line hidden
         private Microsoft.AspNet.Mvc.Razor.InputTestTagHelper __Microsoft_AspNet_Mvc_Razor_InputTestTagHelper = null;
         #line hidden
-        public ASPV_TestFiles_Input_ModelExpressionTagHelper_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_ModelExpressionTagHelper_cshtml()
         {
         }
         #line hidden
@@ -50,13 +50,13 @@
         public override async Task ExecuteAsync()
         {
             __Microsoft_AspNet_Mvc_Razor_InputTestTagHelper = CreateTagHelper<Microsoft.AspNet.Mvc.Razor.InputTestTagHelper>();
-#line 5 "TestFiles/Input/ModelExpressionTagHelper.cshtml"
+#line 5 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.ModelExpressionTagHelper.cshtml"
 __Microsoft_AspNet_Mvc_Razor_InputTestTagHelper.For = CreateModelExpression(__model => __model.Now);
 
 #line default
 #line hidden
             __Microsoft_AspNet_Mvc_Razor_InputTestTagHelper = CreateTagHelper<Microsoft.AspNet.Mvc.Razor.InputTestTagHelper>();
-#line 6 "TestFiles/Input/ModelExpressionTagHelper.cshtml"
+#line 6 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.ModelExpressionTagHelper.cshtml"
 __Microsoft_AspNet_Mvc_Razor_InputTestTagHelper.For = CreateModelExpression(__model => Model);
 
 #line default

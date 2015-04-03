@@ -41,7 +41,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
             // The K runtime compiles every file under compiler/resources as a resource at runtime with the same name
             // as the file name, in order to update a baseline you just need to change the file in that folder.
-            var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync("compiler/resources/BasicWebSite.Home.Index.html");
+            var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync("Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.BasicWebSite.Home.Index.html");
 
             // Act
 
@@ -61,7 +61,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             // Arrange
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
-            var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync("compiler/resources/BasicWebSite.Home.PlainView.html");
+            var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync("Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.BasicWebSite.Home.PlainView.html");
             var expectedMediaType = MediaTypeHeaderValue.Parse("text/html; charset=utf-8");
 
 

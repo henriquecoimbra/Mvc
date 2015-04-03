@@ -40,7 +40,7 @@ namespace Microsoft.AspNet.Mvc.TagHelpers
         private const string FallbackTestClassAttributeName = "asp-fallback-test-class";
         private const string FallbackTestPropertyAttributeName = "asp-fallback-test-property";
         private const string FallbackTestValueAttributeName = "asp-fallback-test-value";
-        private const string FallbackJavaScriptResourceName = "compiler/resources/LinkTagHelper_FallbackJavaScript.js";
+        private const string FallbackJavaScriptResourceName = "Microsoft.AspNet.Mvc.TagHelpers.compiler.resources.LinkTagHelper_FallbackJavaScript.js";
         private const string FileVersionAttributeName = "asp-file-version";
         private const string HrefAttributeName = "href";
 

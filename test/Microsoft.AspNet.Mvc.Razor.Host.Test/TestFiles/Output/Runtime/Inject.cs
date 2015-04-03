@@ -1,7 +1,7 @@
-﻿#pragma checksum "TestFiles/Input/Inject.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "424b7fe9f12352c59210b5fa8c74ca8c9c67de81"
+﻿#pragma checksum "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Inject.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "424b7fe9f12352c59210b5fa8c74ca8c9c67de81"
 namespace Asp
 {
-#line 1 "TestFiles/Input/Inject.cshtml"
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Inject.cshtml"
 using MyNamespace
 
 #line default
@@ -14,10 +14,10 @@ using MyNamespace
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Inject_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Inject_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
-        public ASPV_TestFiles_Input_Inject_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Inject_cshtml()
         {
         }
         #line hidden

@@ -1,4 +1,4 @@
-﻿#pragma checksum "TestFiles/Input/Model.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "2c1e88396568d309c236020e59bf2abacfadd612"
+﻿#pragma checksum "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Model.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "2c1e88396568d309c236020e59bf2abacfadd612"
 namespace Asp
 {
     using System;
@@ -8,8 +8,8 @@ namespace Asp
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Model_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
-#line 1 "TestFiles/Input/Model.cshtml"
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Model_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Model.cshtml"
        System.Collections.IEnumerable
 
 #line default
@@ -17,7 +17,7 @@ namespace Asp
     >
     {
         #line hidden
-        public ASPV_TestFiles_Input_Model_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Model_cshtml()
         {
         }
         #line hidden

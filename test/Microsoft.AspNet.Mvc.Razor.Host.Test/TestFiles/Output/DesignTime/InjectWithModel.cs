@@ -2,8 +2,8 @@
 {
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_InjectWithModel_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
-#line 1 "TestFiles/Input/InjectWithModel.cshtml"
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_InjectWithModel_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.InjectWithModel.cshtml"
        MyModel
 
 #line default
@@ -17,13 +17,13 @@
             #pragma warning restore 219
         }
         #line hidden
-        public ASPV_TestFiles_Input_InjectWithModel_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_InjectWithModel_cshtml()
         {
         }
         #line hidden
         [Microsoft.AspNet.Mvc.ActivateAttribute]
         public
-#line 2 "TestFiles/Input/InjectWithModel.cshtml"
+#line 2 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.InjectWithModel.cshtml"
         MyApp MyPropertyName
 
 #line default
@@ -31,7 +31,7 @@
         { get; private set; }
         [Microsoft.AspNet.Mvc.ActivateAttribute]
         public
-#line 3 "TestFiles/Input/InjectWithModel.cshtml"
+#line 3 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.InjectWithModel.cshtml"
         MyService<MyModel> Html
 
 #line default

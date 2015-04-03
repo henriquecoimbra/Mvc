@@ -55,7 +55,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
 
             var expectedMediaType = MediaTypeHeaderValue.Parse("text/html; charset=utf-8");
             var expectedContent = await _resourcesAssembly
-                .ReadResourceAsStringAsync("compiler/resources/BasicWebSite.Home.ActionLinkView.html");
+                .ReadResourceAsStringAsync("Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.BasicWebSite.Home.ActionLinkView.html");
 
             // Act
 

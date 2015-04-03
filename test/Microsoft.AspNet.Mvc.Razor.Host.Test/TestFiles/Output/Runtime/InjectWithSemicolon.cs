@@ -1,4 +1,4 @@
-﻿#pragma checksum "TestFiles/Input/InjectWithSemicolon.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "b753615982659a9805e6213ceced76ba06782038"
+﻿#pragma checksum "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.InjectWithSemicolon.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "b753615982659a9805e6213ceced76ba06782038"
 namespace Asp
 {
     using System;
@@ -8,8 +8,8 @@ namespace Asp
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_InjectWithSemicolon_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
-#line 1 "TestFiles/Input/InjectWithSemicolon.cshtml"
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_InjectWithSemicolon_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.InjectWithSemicolon.cshtml"
        MyModel
 
 #line default
@@ -17,7 +17,7 @@ namespace Asp
     >
     {
         #line hidden
-        public ASPV_TestFiles_Input_InjectWithSemicolon_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_InjectWithSemicolon_cshtml()
         {
         }
         #line hidden

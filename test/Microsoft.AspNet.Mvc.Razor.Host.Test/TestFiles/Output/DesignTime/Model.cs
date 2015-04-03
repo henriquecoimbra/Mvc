@@ -2,8 +2,8 @@
 {
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Model_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
-#line 1 "TestFiles/Input/Model.cshtml"
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Model_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<
+#line 1 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Model.cshtml"
        System.Collections.IEnumerable
 
 #line default
@@ -17,7 +17,7 @@
             #pragma warning restore 219
         }
         #line hidden
-        public ASPV_TestFiles_Input_Model_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Model_cshtml()
         {
         }
         #line hidden

@@ -1,4 +1,4 @@
-﻿#pragma checksum "TestFiles/Input/Basic.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "63d2634be31f68aa89a0c1561d67c73cc446f3d4"
+﻿#pragma checksum "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Basic.cshtml" "{ff1816ec-aa5e-4d10-87f7-6f4963833460}" "63d2634be31f68aa89a0c1561d67c73cc446f3d4"
 namespace Asp
 {
     using System;
@@ -8,10 +8,10 @@ namespace Asp
     using Microsoft.AspNet.Mvc.Rendering;
     using System.Threading.Tasks;
 
-    public class ASPV_TestFiles_Input_Basic_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
+    public class ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Basic_cshtml : Microsoft.AspNet.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
-        public ASPV_TestFiles_Input_Basic_cshtml()
+        public ASPV_Microsoft_AspNet_Mvc_Razor_Host_Test_TestFiles_Input_Basic_cshtml()
         {
         }
         #line hidden
@@ -36,7 +36,7 @@ namespace Asp
             WriteLiteral(">\r\n    Hello world\r\n    ");
             EndContext();
             BeginContext(43, 21, false);
-#line 3 "TestFiles/Input/Basic.cshtml"
+#line 3 "Microsoft.AspNet.Mvc.Razor.Host.Test.TestFiles.Input.Basic.cshtml"
 Write(Html.Input("SomeKey"));
 
 #line default

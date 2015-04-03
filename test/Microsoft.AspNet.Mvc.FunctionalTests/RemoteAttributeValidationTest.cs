@@ -30,7 +30,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/ValidationWebSite." + areaName + ".RemoteAttribute_Home.Create.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.ValidationWebSite." + areaName + ".RemoteAttribute_Home.Create.html");
             var url = "http://localhost" + pathSegment + "/RemoteAttribute_Home/Create";
 
             // Act

@@ -41,7 +41,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             // The K runtime compiles every file under compiler/resources as a resource at runtime with the same name
             // as the file name, in order to update a baseline you just need to change the file in that folder.
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/TagHelpersWebSite.Home." + action + ".html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.TagHelpersWebSite.Home." + action + ".html");
 
             // Act
 
@@ -130,7 +130,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/TagHelpersWebSite.Employee.Create.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.TagHelpersWebSite.Employee.Create.html");
 
             // Act
             var response = await client.GetAsync("http://localhost/Employee/Create");
@@ -148,7 +148,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/TagHelpersWebSite.Employee.Details.AfterCreate.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.TagHelpersWebSite.Employee.Details.AfterCreate.html");
             var validPostValues = new Dictionary<string, string>
             {
                 { "FullName", "Boo" },
@@ -176,7 +176,7 @@ namespace Microsoft.AspNet.Mvc.FunctionalTests
             var server = TestHelper.CreateServer(_app, SiteName, _configureServices);
             var client = server.CreateClient();
             var expectedContent = await _resourcesAssembly.ReadResourceAsStringAsync(
-                "compiler/resources/TagHelpersWebSite.Employee.Create.Invalid.html");
+                "Microsoft.AspNet.Mvc.FunctionalTests.compiler.resources.TagHelpersWebSite.Employee.Create.Invalid.html");
             var validPostValues = new Dictionary<string, string>
             {
                 { "FullName", "Boo" },
