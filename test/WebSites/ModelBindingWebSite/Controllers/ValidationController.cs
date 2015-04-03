@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using ModelBindingWebSite.Models;
@@ -13,6 +15,22 @@ namespace ModelBindingWebSite.Controllers
     {
         [FromServices]
         public ITestService ControllerService { get; set; }
+
+        public async Task<string> CreatePhoneRecord(int id)
+        {
+            var phoneRecord = new PhoneRecord()
+            {
+                Number = id
+            };
+
+            await TryUpdateModelAsync(phoneRecord);
+            if (ModelState.IsValid)
+            {
+                return phoneRecord.Number.ToString();
+            }
+
+            return ModelState["User"].Errors.Single().ErrorMessage;
+        }
 
         public bool SkipValidation(Resident resident)
         {
